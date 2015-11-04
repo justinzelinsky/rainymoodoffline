@@ -1,19 +1,19 @@
 $(document).ready(function() {
     var on = false;
-    var rainy = document.getElementById("rainy");
+    var rainy = $('#rainy');
 
-    function turnon() {
+    function turnOn() {
         chrome.browserAction.setIcon({
-            path: "images/cloud.png"
+            path: 'images/cloud.png'
         });
-        rainy.play();
+        rainy.trigger('play');
     }
 
-    function turnoff() {
+    function turnOff() {
         chrome.browserAction.setIcon({
             path: "images/sun.png"
         });
-        rainy.pause();
+        rainy.trigger('pause');
     }
 
     chrome.browserAction.setIcon({
@@ -22,9 +22,9 @@ $(document).ready(function() {
 
     chrome.browserAction.onClicked.addListener(function(tab) {
         if (on) {
-            turnoff();
+            turnOff();
         } else {
-            turnon();
+            turnOn();
         }
 
         on = !on;
