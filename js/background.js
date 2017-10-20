@@ -1,32 +1,18 @@
-$(document).ready(function() {
-    var on = false;
-    var rainy = $('#rainy');
+document.addEventListener('DOMContentLoaded', function(event) {
+    let on = false;
+    const rainy = document.getElementById('rainy');
 
-    function turnOn() {
-        chrome.browserAction.setIcon({
-            path: 'images/cloud.png'
-        });
-        rainy.trigger('play');
-    }
-
-    function turnOff() {
-        chrome.browserAction.setIcon({
-            path: "images/sun.png"
-        });
-        rainy.trigger('pause');
-    }
-
-    chrome.browserAction.setIcon({
-        path: "images/sun.png"
-    });
+    chrome.browserAction.setIcon({path: 'images/sun.png'});
 
     chrome.browserAction.onClicked.addListener(function(tab) {
         if (on) {
-            turnOff();
+            chrome.browserAction.setIcon({path: 'images/sun.png'});
+            rainy.pause();
         } else {
-            turnOn();
+            chrome.browserAction.setIcon({path: 'images/cloud.png'});
+            rainy.play();
         }
-
         on = !on;
     });
+
 });
