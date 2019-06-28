@@ -1,16 +1,16 @@
 {
-    "background": {
-        "page": "background.html"
-    },
-    "browser_action": {
-        "default_title": "Rainy Mood"
-    },
-    "description": "Listen to Rainymood directry from Google Chrome with offline support!",
-    "icons": {
-        "128": "images/big.png"
-    },
-    "name": "Rainy Mood 2.0",
-    "version": "2.0",
-    "manifest_version": 2,
-    "author": "Justin Zelinsky"
+  "background": {
+    "page": "background.html"
+  },
+  "browser_action": {
+    "default_title": "Rainy Mood"
+  },
+  "description": "Listen to Rainymood directry from Google Chrome with offline support!",
+  "icons": {
+    "128": "images/big.png"
+  },
+  "name": "Rainy Mood 2.0",
+  "version": "3.0",
+  "manifest_version": 3,
+  "author": "Justin Zelinsky"
 }
