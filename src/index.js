@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const sun = {
-    path: 'images/sun.png'
-  };
-  const cloud = {
-    path: 'images/cloud.png'
-  };
-  let on = false;
   const rainy = document.getElementById('rainy');
+
+  const sun = {
+    path: 'assets/images/sun.png'
+  };
+
+  const cloud = {
+    path: 'assets/images/cloud.png'
+  };
+
+  let on = false;
 
   chrome.browserAction.setIcon(sun);
 
