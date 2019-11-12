@@ -1,26 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const rainy = document.getElementById('rainy');
+const rainAudio = document.createElement('audio');
+rainAudio.src = chrome.runtime.getURL('src/assets/audio/RainyMood.m4a');
+rainAudio.loop = 'true';
 
-  const sun = {
-    path: 'assets/images/sun.png'
-  };
+document.body.appendChild(rainAudio);
 
-  const cloud = {
-    path: 'assets/images/cloud.png'
-  };
+const sun = {
+  icon: {
+    path: chrome.runtime.getURL('src/assets/images/sun.png')
+  },
+  title: {
+    title: "It's a beautiful day!"
+  }
+};
+const rain = {
+  icon: {
+    path: chrome.runtime.getURL('src/assets/images/cloud.png')
+  },
+  title: {
+    title: 'A little rain never hurt anyone :)'
+  }
+};
 
-  let on = false;
+chrome.browserAction.setIcon(sun.icon);
 
-  chrome.browserAction.setIcon(sun);
-
-  chrome.browserAction.onClicked.addListener(() => {
-    if (on) {
-      chrome.browserAction.setIcon(sun);
-      rainy.pause();
-    } else {
-      chrome.browserAction.setIcon(cloud);
-      rainy.play();
-    }
-    on = !on;
-  });
+let isRaining = false;
+chrome.browserAction.onClicked.addListener(() => {
+  if (isRaining) {
+    rainAudio.pause();
+    chrome.browserAction.setIcon(sun.icon);
+    chrome.browserAction.setTitle(sun.title);
+  } else {
+    rainAudio.play();
+    chrome.browserAction.setIcon(rain.icon);
+    chrome.browserAction.setTitle(rain.title);
+  }
+  isRaining = !isRaining;
 });

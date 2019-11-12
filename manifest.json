@@ -1,6 +1,6 @@
 {
   "background": {
-    "page": "src/index.html"
+    "scripts": ["src/index.js"]
   },
   "browser_action": {
     "default_title": "Rainy Mood"
@@ -9,8 +9,8 @@
   "icons": {
     "128": "src/assets/images/big.png"
   },
-  "name": "Rainy Mood 2.0",
-  "version": "4.0",
+  "name": "Rainy Mood Offline",
+  "version": "5.0",
   "manifest_version": 2,
   "author": "Justin Zelinsky"
 }
