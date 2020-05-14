@@ -24,7 +24,8 @@ const rain = {
 chrome.browserAction.setIcon(sun.icon);
 
 let isRaining = false;
-chrome.browserAction.onClicked.addListener(() => {
+
+chrome.browserAction.onClicked.addListener(function() {
   if (isRaining) {
     rainAudio.pause();
     chrome.browserAction.setIcon(sun.icon);
